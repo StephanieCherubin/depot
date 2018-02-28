@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class StoreControllerTest < ActionDispatch::IntegrationTest
+class StoreControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success

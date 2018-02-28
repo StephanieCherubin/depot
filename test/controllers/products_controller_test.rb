@@ -14,6 +14,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
     get :index
     assert_response :success
+    assert_not_nil assigns(:products)
   end
 
   test "should get new" do
@@ -26,7 +27,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
       post :create, product: @update
     end
 
-    assert_redirected_to product_url(assigns(:product))
+    assert_redirected_to product_path(assigns(:product))
   end
 
   test "should show product" do
