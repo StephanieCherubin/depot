@@ -12,12 +12,12 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
-    get products_url
+    get :index
     assert_response :success
   end
 
   test "should get new" do
-    get new_product_url
+    get :new
     assert_response :success
   end
 
@@ -26,7 +26,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
       post :create, product: @update
     end
 
-    assert_redirected_to product_url(Product.last)
+    assert_redirected_to product_url(assigns(:product))
   end
 
   test "should show product" do
@@ -41,7 +41,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update product" do
     patch :update, id: @product, product: @update
-    assert_redirected_to product_url(@product)
+    assert_redirected_to product_path(assigns(:product))
   end
 
   test "should destroy product" do
