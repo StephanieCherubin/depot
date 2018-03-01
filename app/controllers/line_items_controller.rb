@@ -32,6 +32,7 @@ class LineItemsController < ApplicationController
     respond_to do |format|
       if @line_item.save
         format.html { redirect_to store_url}
+        format.js
         format.json { render :show,
           status: :created, location: @line_item }
       else
@@ -48,7 +49,6 @@ class LineItemsController < ApplicationController
     respond_to do |format|
       if @line_item.update(line_item_params)
         format.html { redirect_to @line_item, notice: 'Line item was successfully updated.' }
-        format.js
         format.json { render :show, status: :ok, location: @line_item }
       else
         format.html { render :edit }
